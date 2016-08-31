@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="heading-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>Projetos Feitos</h1>
+                </div>
+                <div class="col-md-5">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a>
+                        </li>
+                        <li>Catálogo</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container">
+
+            <section>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>Portfolio</h2>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row portfolio">
+                    {% for p in projetos %}
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="box-image">
+                                <div class="image">
+                                    <img src="{{ p.foto_set.first.foto.url }}" alt="" class="img-responsive"
+                                         style="height: 300px;">
+                                </div>
+                                <div class="bg"></div>
+                                <div class="name">
+                                    <h3><a href="/projeto/{{ p.id }}">{{ p.titulo }}</a></h3>
+                                </div>
+                                <div class="text">
+                                    <p class="hidden-sm">{{ p.desc|truncatechars:60 }}</p>
+
+                                    <p class="buttons">
+                                        <a href="/projeto/{{ p.id }}"
+                                           class="btn btn-template-transparent-primary">Ver</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- /.box-image -->
+
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </section>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#projetos').addClass('active');
+        });
+    </script>
+{% endblock %}

@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/login/$', auth_views.login),
     url(r'^$', views.index, name='index'),
+    url(r'^projetos/', views.projetos, name='projetos'),
+    url(r'^projeto/(?P<id>[^\.]+)', views.ver_projeto, name='verprojeto'),
     url(r'^submit', views.submit, name='submit'),
 ]

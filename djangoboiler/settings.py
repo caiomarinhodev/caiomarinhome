@@ -26,9 +26,17 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'ppsh=mors*9c5bk&lh7kw(1)%#)y!m21z@+y6k#79&l^@z4971'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+FILE_CHARSET='iso-8859-1'
 
 ALLOWED_HOSTS = ['caiomarinho.herokuapp.com', 'caiomarinho.me', 'caiomarinho.com', 'www.caiomarinho.me']
+
+CLOUDINARY = {
+    'cloud_name': 'freelancerinc',
+    'api_key': '977733565746842',
+    'api_secret': 'q552mjrVeEmgPs1kUxfKzp4wz2o'
+}
 
 
 # Application definition
@@ -40,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
     'app',
+    'ckeditor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -140,3 +150,6 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
