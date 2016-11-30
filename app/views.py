@@ -5,7 +5,7 @@ from app.models import *
 
 
 def index(request):
-    projetos = Projeto.objects.filter(visivel=True).order_by('-criado_em')[:4]
+    projetos = Projeto.objects.filter(visivel=True).order_by('-criado_em')[:3]
     return render_to_response('index.html', {'projetos': projetos},
                               context_instance=RequestContext(request))
 
