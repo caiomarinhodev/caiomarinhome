@@ -11,7 +11,7 @@
                     <ul class="breadcrumb">
                         <li><a href="index.html">Home</a>
                         </li>
-                        <li>Cat·logo</li>
+                        <li>Cat√°logo</li>
                     </ul>
 
                 </div>
@@ -39,8 +39,14 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="box-image">
                                 <div class="image">
-                                    <img src="{{ p.foto_set.first.foto.url }}" alt="" class="img-responsive"
-                                         style="height: 300px;">
+                                    {% for foto in p.foto_set.all %}
+                                            {% if foto.principal %}
+                                                <img src="{{foto.foto.url }}"
+                                                     alt="{{ p.titulo }}"
+                                                     class="img-responsive"
+                                                     style="height: 300px;">
+                                            {% endif %}
+                                        {% endfor %}
                                 </div>
                                 <div class="bg"></div>
                                 <div class="name">
