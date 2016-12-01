@@ -22,8 +22,8 @@ _________________________________________________________ -->
                                 <h2> Construa hoje mesmo seu site</h2>
                                 <ul class="list-style-none">
                                     <li>Sites modernos e atraentes</li>
-                                    <li>Disponível em todas plataformas</li>
-                                    <li>+ painel de administração</li>
+                                    <li>DisponÃ­vel em todas plataformas</li>
+                                    <li>+ painel de administraÃ§Ã£o</li>
                                     <li>+ email marketing</li>
                                 </ul>
                             </div>
@@ -35,10 +35,10 @@ _________________________________________________________ -->
                             <div class="col-sm-5 right">
                                 <h1>Design Clean</h1>
                                 <ul class="list-style-none">
-                                    <li>Construímos designs limpos</li>
+                                    <li>ConstruÃ­mos designs limpos</li>
                                     <li>Tela cheia ou Boxed Mode</li>
-                                    <li>Seguimos o padrão de cores do cliente</li>
-                                    <li>Disponível para todos os navegadores</li>
+                                    <li>Seguimos o padrÃ£o de cores do cliente</li>
+                                    <li>DisponÃ­vel para todos os navegadores</li>
                                 </ul>
                             </div>
                             <div class="col-sm-7">
@@ -54,9 +54,9 @@ _________________________________________________________ -->
                             <div class="col-sm-5">
                                 <h1>Crie hoje sua Loja Online</h1>
                                 <ul class="list-style-none">
-                                    <li>Plataforma de fácil uso</li>
+                                    <li>Plataforma de fÃ¡cil uso</li>
                                     <li>Diversos sistemas de pagamento</li>
-                                    <li>Fácil implantação</li>
+                                    <li>FÃ¡cil implantaÃ§Ã£o</li>
                                 </ul>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ _________________________________________________________ -->
                     <p class="lead">Atuando como desenvolvedor, tenho trabalhado com sistemas multiplataforma por 3 anos
                         no mercado. Estou disposto a colocar seu segmento na forma digital, e facilitar para seus
                         clientes o acesso a sua firma. Nestes anos venho desenvolvendo aplicativos, websites, sistemas
-                        de mail marketing, de gerenciamento, call marketing, entre outros serviços. </p>
+                        de mail marketing, de gerenciamento, call marketing, entre outros serviÃ§os. </p>
 
                 </div>
             </div>
@@ -108,7 +108,7 @@ _________________________________________________________ -->
                                     <div class="row">
                                         <div class="col-md-8">
                                             <p>Este sistema, sendo ele aplicativo, website, ecommerce ou social media,
-                                                desenvolvo de acordo com o desejo do cliente. Sistema único, e focado no
+                                                desenvolvo de acordo com o desejo do cliente. Sistema Ãºnico, e focado no
                                                 problema da sua empresa. </p>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ _________________________________________________________ -->
                                     <div class="row">
                                         <div class="col-md-8">
                                             <p>Utilizo as ferramentas mais modernas, tornando a usabilidade mais
-                                                confortável possível.</p>
+                                                confortÃ¡vel possÃ­vel.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@ _________________________________________________________ -->
                                 <div class="panel-body">
                                     <ul>
                                         <li>Contato direto 24/7</li>
-                                        <li>Preço abaixo do mercado</li>
+                                        <li>PreÃ§o abaixo do mercado</li>
                                         <li>Sem burocracias</li>
                                         <li>Confiabilidade e Fidelidade</li>
 
@@ -250,7 +250,7 @@ _________________________________________________________ -->
         <div class="container">
             <div class="col-md-12">
                 <div class="heading text-center">
-                    <h2>Serviços</h2>
+                    <h2>ServiÃ§os</h2>
                 </div>
 
                 <div class="row">
@@ -261,7 +261,7 @@ _________________________________________________________ -->
                             </div>
                             <h3>Websites</h3>
 
-                            <p>Posso construir para você um belo site estático ou dinâmico.</p>
+                            <p>Posso construir para vocÃª um belo site estÃ¡tico ou dinÃ¢mico.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -271,8 +271,8 @@ _________________________________________________________ -->
                             </div>
                             <h3>Apps</h3>
 
-                            <p>O mercado de aplicativos é crescente, e a partir de R$600,00 podemos construir para
-                                você.</p>
+                            <p>O mercado de aplicativos Ã© crescente, e a partir de R$600,00 podemos construir para
+                                vocÃª.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -295,7 +295,7 @@ _________________________________________________________ -->
                             </div>
                             <h3>e-commerce</h3>
 
-                            <p>Venda seus produtos e serviços online, e fature muito mais.</p>
+                            <p>Venda seus produtos e serviÃ§os online, e fature muito mais.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -315,7 +315,7 @@ _________________________________________________________ -->
                             </div>
                             <h3>social media</h3>
 
-                            <p>Podemos criar para você todo serviço de Marketing Digital para sua empresa. </p>
+                            <p>Podemos criar para vocÃª todo serviÃ§o de Marketing Digital para sua empresa. </p>
                         </div>
                     </div>
                 </div>
@@ -378,9 +378,14 @@ _________________________________________________________ -->
                             <div class="col-sm-4">
                                 <div class="box-image">
                                     <div class="image">
-                                        <img src="{{ p.foto_set.first.foto.url }}" alt="{{ p.titulo }}"
-                                             class="img-responsive"
-                                             style="height: 300px;">
+                                        {% for foto in p.foto_set.all %}
+                                            {% if foto.principal %}
+                                                <img src="{{foto.foto.url }}"
+                                                     alt="{{ p.titulo }}"
+                                                     class="img-responsive"
+                                                     style="height: 300px;">
+                                            {% endif %}
+                                        {% endfor %}
                                     </div>
                                     <div class="bg"></div>
                                     <div class="name">
