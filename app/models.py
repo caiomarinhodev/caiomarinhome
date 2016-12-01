@@ -47,5 +47,6 @@ class Projeto(models.Model):
 class Foto(models.Model):
     foto = CloudinaryField('imagem')
     model = models.ForeignKey(Projeto)
+    principal = models.BooleanField(default=False)
     criado_em = models.DateTimeField(auto_now_add=True)
     editado_em = models.DateTimeField(auto_now=True)
