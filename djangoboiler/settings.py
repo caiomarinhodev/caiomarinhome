@@ -18,7 +18,6 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -28,7 +27,7 @@ SECRET_KEY = 'ppsh=mors*9c5bk&lh7kw(1)%#)y!m21z@+y6k#79&l^@z4971'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-FILE_CHARSET='iso-8859-1'
+FILE_CHARSET = 'utf-8'
 
 ALLOWED_HOSTS = ['caiomarinho.herokuapp.com', 'caiomarinho.me', 'caiomarinho.com', 'www.caiomarinho.me']
 
@@ -37,7 +36,6 @@ CLOUDINARY = {
     'api_key': '977733565746842',
     'api_secret': 'q552mjrVeEmgPs1kUxfKzp4wz2o'
 }
-
 
 # Application definition
 
@@ -85,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoboiler.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -95,7 +92,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -115,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -129,11 +124,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Database Config
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
