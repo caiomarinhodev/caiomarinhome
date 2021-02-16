@@ -1,12 +1,13 @@
 from __future__ import unicode_literals
-from cloudinary.models import CloudinaryField
 
-from django.db import models
+from base64 import b64encode
+
+import pyimgur
 from ckeditor.fields import RichTextField
+from django.db import models
 
 
 # Create your models here.
-from django.db.models import permalink
 
 
 class Contato(models.Model):
@@ -31,8 +32,8 @@ class Categoria(models.Model):
 class Projeto(models.Model):
     titulo = models.CharField(max_length=100, blank=True, null=True)
     desc = models.TextField(max_length=200)
-    texto = RichTextField()
-    categoria = models.ForeignKey(Categoria, blank=True, null=True)
+    texto = models.TextField(blank=True, null=True)
+    categoria = models.ForeignKey(Categoria, blank=True, null=True, on_delete=models.CASCADE)
     criado_em = models.DateTimeField(auto_now_add=True)
     editado_em = models.DateTimeField(auto_now=True)
     visivel = models.BooleanField(default=True)
@@ -45,8 +46,23 @@ class Projeto(models.Model):
 
 
 class Foto(models.Model):
-    foto = CloudinaryField('imagem')
-    model = models.ForeignKey(Projeto)
+    file = models.FileField(blank=True, null=True)
+    foto = models.URLField(blank=True, null=True, default='https://placehold.it/300x300')
+    model = models.ForeignKey(Projeto, blank=True, null=True, on_delete=models.CASCADE)
     principal = models.BooleanField(default=False)
     criado_em = models.DateTimeField(auto_now_add=True)
     editado_em = models.DateTimeField(auto_now=True)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        try:
+            CLIENT_ID = "cdadf801dc167ab"
+            bencode = b64encode(self.file.read())
+            client = pyimgur.Imgur(CLIENT_ID)
+            r = client._send_request('https://api.imgur.com/3/image', method='POST', params={'image': bencode})
+            file = r['link']
+            self.foto = file
+        except (Exception,):
+            pass
+        super(Foto, self).save(force_insert=force_insert, force_update=force_update, using=using,
+                               update_fields=update_fields)

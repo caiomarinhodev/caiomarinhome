@@ -28,7 +28,7 @@ class ContatoAdmin(admin.ModelAdmin):
 
 class ProjetoAdmin(admin.ModelAdmin):
     inlines = [FotoInline, ]
-    list_display = ('titulo', 'id', 'criado_em', 'editado_em', 'visivel')
+    list_display = ('titulo', 'id', 'criado_em', 'visivel')
     ordering = ['-criado_em']
 
 

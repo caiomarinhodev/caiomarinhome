@@ -29,13 +29,7 @@ DEBUG = False
 
 FILE_CHARSET = 'utf-8'
 
-ALLOWED_HOSTS = ['caiomarinho.herokuapp.com', 'caiomarinho.me', 'caiomarinho.com', 'www.caiomarinho.me']
-
-CLOUDINARY = {
-    'cloud_name': 'freelancerinc',
-    'api_key': '977733565746842',
-    'api_secret': 'q552mjrVeEmgPs1kUxfKzp4wz2o'
-}
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -46,18 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
     'app',
-    'ckeditor',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]

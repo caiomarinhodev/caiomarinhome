@@ -41,7 +41,7 @@
                                 <div class="image">
                                     {% for foto in p.foto_set.all %}
                                             {% if foto.principal %}
-                                                <img src="{{foto.foto.url }}"
+                                                <img src="{{foto.foto }}"
                                                      alt="{{ p.titulo }}"
                                                      class="img-responsive"
                                                      style="height: 300px;">
