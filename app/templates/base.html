@@ -4,8 +4,8 @@
 {% block head %}
     {% include 'head.html' %}
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+          href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 {% endblock %}
 
 <body>
@@ -116,7 +116,7 @@ _________________________________________________________ -->
 
 <!-- #### JAVASCRIPT FILES ### -->
 
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <script src="{% static 'js/jquery.cookie.js' %}"></script>
 <script src="{% static 'js/waypoints.min.js' %}"></script>
@@ -125,6 +125,30 @@ _________________________________________________________ -->
 <script src="{% static 'js/front.js' %}"></script>
 <!-- owl carousel -->
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<div id="WAButton"></div>
+
+<link rel="stylesheet"
+      href="//rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">
+<!--Floating WhatsApp javascript-->
+<script type="text/javascript"
+        src="//rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
+
+<script>
+    $(function () {
+        $('#WAButton').floatingWhatsApp({
+            phone: '+5583991773034', //WhatsApp Business phone number International format-
+            //Get it with Toky at https://toky.co/en/features/whatsapp.
+            headerTitle: 'Fale comigo pelo Whastapp!', //Popup Title
+            popupMessage: 'Olá, sou o Caio. Seja bem-vindo(a) por aqui, em que posso te ajudar?', //Popup Message
+            showPopup: true, //Enables popup display
+            buttonImage: '<img src="//rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', //Button Image
+            //headerColor: 'crimson', //Custom header color
+            //backgroundColor: 'crimson', //Custom background button color
+            position: "right"
+        });
+    });
+</script>
 
 </body>
 

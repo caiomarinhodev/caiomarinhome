@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from app import views
+from app.views import ViewProjeto, ListProjetos, IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/login/$', auth_views.login),
-    url(r'^$', views.index, name='index'),
-    url(r'^projetos/', views.projetos, name='projetos'),
-    url(r'^projeto/(?P<id>[^\.]+)', views.ver_projeto, name='verprojeto'),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^projetos/', ListProjetos.as_view(), name='projetos'),
+    url(r'^projeto/(?P<id>[^\.]+)', ViewProjeto.as_view(), name='verprojeto'),
     url(r'^submit', views.submit, name='submit'),
 ]

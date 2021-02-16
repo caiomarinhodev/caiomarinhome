@@ -1,24 +1,31 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, redirect
+from django.views.generic import DetailView, ListView
 
 from app.models import *
 
 
-def index(request):
-    projetos = Projeto.objects.filter(visivel=True).order_by('-criado_em')[:3]
-    return render_to_response('index.html', {'projetos': projetos},
-                              context_instance=RequestContext(request))
+class IndexView(ListView):
+    template_name = 'index.html'
+    model = Projeto
+    context_object_name = 'projetos'
+
+    def get_queryset(self):
+        return Projeto.objects.filter(visivel=True).order_by('-criado_em')[:3]
 
 
-def projetos(request):
-    projetos = Projeto.objects.filter(visivel=True)
-    return render_to_response('projetos.html', {'projetos': projetos},
-                              context_instance=RequestContext(request))
+class ListProjetos(ListView):
+    template_name = 'projetos.html'
+    model = Projeto
+    context_object_name = 'projetos'
+
+    def get_queryset(self):
+        return Projeto.objects.filter(visivel=True)
 
 
-def ver_projeto(request, id):
-    return render_to_response('ver_projeto.html', {'projeto': get_object_or_404(Projeto, id=id)},
-                              context_instance=RequestContext(request))
+class ViewProjeto(DetailView):
+    model = Projeto
+    template_name = 'ver_projeto.html'
+    context_object_name = 'projeto'
 
 
 def submit(request):
@@ -31,5 +38,5 @@ def submit(request):
     try:
         objeto.save()
     except:
-        return render(request, 'base.html', {'error': 'Algum dado informado esta invalido.'})
-    return render(request, 'base.html', {'success': 'Mensagem enviada!'})
+        return redirect('index')
+    return redirect('index')
