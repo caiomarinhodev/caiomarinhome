@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://caiomarinho.herokuapp.com/">
-    <img src="http://caiomarinho.herokuapp.com/static/img/logo.098610e8e91a.png" height="150" alt="wm" />
+    <img src="https://i.imgur.com/FUzBJYv.png" height="150" alt="wm" />
   </a>
 </p>
 
